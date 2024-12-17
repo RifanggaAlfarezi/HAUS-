@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .order-type {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .order-type select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .related-menu {
+            margin-bottom: 20px;
+        }
+
+        .related-menu h2 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .menu-items {
+            display: flex;
+            gap: 10px;
+        }
+
+        .menu-item {
+            text-align: center;
+            background: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+            width: 45%;
+        }
+
+        .menu-item img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        .menu-item p {
+            margin: 5px 0;
+        }
+
+        .ordered-items {
+            margin-bottom: 20px;
+        }
+
+        .ordered-items h2 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .ordered-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .ordered-items img {
+            border-radius: 1rem;
+        }
+
+        .payment-details {
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .payment-details h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .payment-row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .total {
+            font-weight: bold;
+            color: #e91e63;
+        }
+
+        .add-note {
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+    </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order HAUS!</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button onclick="window.location.href='index.html'">&larr;</button>
+            <h1>Order Haus!</h1>
+        </div>
+
+        <div class="order-type">
+            <label for="orderType">Choose Your Size!</label>
+            <select id="orderType" onchange="updatePrice()">
+                <option value="12000">Small</option>
+                <option value="15000">Medium</option>
+                <option value="20000">Large</option>
+            </select>
+        </div>
+
+        <div class="ordered-items">
+            <h2>Ordered Items</h2>
+            <div class="ordered-item">
+                <img src="img/menu/3.100px.png" alt="Ice Cofee">
+                <p>Green Thai Tea</p>
+                <span id="itemPrice">Rp12.000</span>
+            </div>
+        </div>
+
+        <div class="add-note">
+            <textarea placeholder="Add another note"></textarea>
+        </div>
+
+        <div class="payment-details">
+            <div class="payment-row">
+                <span>Subtotal</span>
+                <span id="subtotal">Rp12.000</span>
+            </div>
+            <div class="payment-row total">
+                <span>Total</span>
+                <span id="total">Rp12.000</span>
+            </div>
+        </div>
+    </div>
+    <div class="checkout-section" style="text-align: center; margin-top: 20px;">
+    <a href="payment.html">
+            <button style="
+                background-color:#e91e63; 
+                color: white; 
+                border: none; 
+                padding: 10px 20px; 
+                font-size: 16px; 
+                border-radius: 5px;
+                cursor: pointer;">
+                Checkout
+            </button>
+        </a>
+</div>
+
+    <script>
+        function updatePrice() {
+            const orderType = document.getElementById("orderType");
+            const selectedPrice = parseInt(orderType.value);
+
+            // Update item price
+            document.getElementById("itemPrice").innerText = "Rp" + selectedPrice.toLocaleString();
+
+            // Update subtotal
+            document.getElementById("subtotal").innerText = "Rp" + selectedPrice.toLocaleString();
+
+            // Update total price
+            document.getElementById("total").innerText = "Rp" + selectedPrice.toLocaleString();
+        }
+    </script>
+</body>
+</html>
